@@ -1,4 +1,12 @@
 class Item < ApplicationRecord
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :status
+  belongs_to :derivery_method
+  belongs_to :delivery_area
+  belongs_to :delivery_day
+
   with_options presence: true do
     validates :name
     validates :text
@@ -10,5 +18,5 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  has_many :items
+  belongs_to :user
 end

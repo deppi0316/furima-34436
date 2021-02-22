@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  validates :price, numericality: { greater_than: 300, less_than:9999999 , message: "Out of setting range"}
+  validates :price, numericality: { greater_than: 299, less_than:10000000 , message: "Out of setting range"}
   validates :price, numericality: { only_interger: true ,message: "Half-width number"}
   
   validates :category_id, numericality: { other_than: 1 ,message:"Select"} 

@@ -1,13 +1,14 @@
 class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
-  belongs_to :status
-  belongs_to :derivery_method
-  belongs_to :delivery_area
-  belongs_to :delivery_day
-
+    belongs_to :category
+    belongs_to :status
+    belongs_to :delivery_method
+    belongs_to :delivery_area
+    belongs_to :delivery_day
+  
   with_options presence: true do
+    validates :image
     validates :name
     validates :text
     validates :category_id
@@ -18,5 +19,18 @@ class Item < ApplicationRecord
     validates :price
   end
 
+  validates :price, numericality: { greater_than: 300, less_than:9999999 , message: "Out of setting range"}
+  validates :price, numericality: { only_interger: true ,message: "Half-width number"}
+  
+  validates :category_id, numericality: { other_than: 1 ,message:"Category Select"} 
+  validates :status_id, numericality: { other_than: 1 ,message:"Status Select"}
+  validates :delivery_method_id, numericality: { other_than: 1 ,message:"Delivery method Select"}
+  validates :delivery_area_id, numericality: { other_than: 1 ,message:"Delivery area Select"}
+  validates :delivery_day_id, numericality: { other_than: 1 ,message:"Delivery day Select"}
+
   belongs_to :user
+  has_one_attached :image
+
+
+
 end

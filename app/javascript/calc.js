@@ -11,6 +11,5 @@ function calc(){
     addTaxPrice.innerHTML = `${x}`
     profit.innerHTML = `${y}`
   });
-
 }
 window.addEventListener('load',calc)

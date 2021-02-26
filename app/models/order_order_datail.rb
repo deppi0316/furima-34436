@@ -14,7 +14,7 @@ class OrderOrderDatail
     validates :token
   end
 
-  validates :phone_number, numericality: {only_integer: true, greater_than: 0, less_than:99999999999 , message: "Input only number'"}
+  validates :phone_number, numericality: {only_integer: true, greater_than: 0, less_than:99999999999 , message: "Input only number"}
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id,token: token)

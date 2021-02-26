@@ -51,7 +51,6 @@ RSpec.describe OrderOrderDatail, type: :model do
         @order_order_datail.delivery_area_id = 1
         @order_order_datail.valid?
         expect(@order_order_datail.errors.full_messages).to include("Delivery area Select")
-
       end
 
       it 'municipalityが空の場合購入できない' do
@@ -107,8 +106,8 @@ RSpec.describe OrderOrderDatail, type: :model do
         @order_order_datail.item_id = nil
         @order_order_datail.valid?
         expect(@order_order_datail.errors.full_messages).to include("Item can't be blank")
-        
       end
+    
     end
   end
 end

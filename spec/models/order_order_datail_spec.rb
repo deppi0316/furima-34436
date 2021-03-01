@@ -84,7 +84,7 @@ RSpec.describe OrderOrderDatail, type: :model do
       end
 
       it 'phone_numberが12桁以上の場合の場合購入できない' do
-        @order_order_datail.phone_number = 999999999999
+        @order_order_datail.phone_number = "999999999999"
         @order_order_datail.valid?
         expect(@order_order_datail.errors.full_messages).to include("Phone number Input only number")
       end

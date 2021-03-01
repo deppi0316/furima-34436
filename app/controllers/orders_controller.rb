@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :move_index
+  before_action :set_item,only: [:index,:create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_order_datail = OrderOrderDatail.new
     if current_user.id == @item.user_id ||@item.order.present?
       redirect_to root_path
@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
       @order_order_datail.save
       return redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
@@ -42,5 +41,10 @@ class OrdersController < ApplicationController
         redirect_to root_path
       end
     end
+
+    def set_item
+      @item = Item.find(params[:item_id])
+    end
+
 
 end

@@ -48,10 +48,10 @@
 
 - belongs_to :room
 - belongs_to :user
-- has_one :order_detail
+- has_one :order_datail
 
 
-## order_details テーブル
+## order_datails テーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
